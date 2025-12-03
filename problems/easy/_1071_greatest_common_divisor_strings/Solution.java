@@ -23,34 +23,6 @@ final class Solution {
         System.out.println(solution.gcdOfStrings1("ABC", "DEF").isEmpty());
     }
 
-    public String gcdOfStrings(String str1, String str2) {
-        //fail first
-        if (!(str1 + str2).equals(str2 + str1)) return "";
-
-        String shorter = str1.length() < str2.length() ? str1 : str2;
-        int shorterLength = shorter.length();
-        String longer = shorter.equals(str1) ? str2 : str1;
-        int longerLength = longer.length();
-        String greatestStr = "";
-
-        for (int i = shorterLength; i > 0; i--) {
-            var part = shorter.substring(0, i);
-            var partLength = part.length();
-
-            if (shorterLength % partLength == 0 && longerLength % partLength == 0) {
-                int blocks = longerLength / partLength;
-                String tempString = part.repeat(blocks);
-
-                if (tempString.equals(longer)) {
-                    greatestStr = part;
-                    break;
-                }
-            }
-        }
-
-        return greatestStr;
-    }
-
     public String gcdOfStrings1(String str1, String str2) {
         //fail first
         if (!(str1 + str2).equals(str2 + str1)) return "";
